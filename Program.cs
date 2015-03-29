@@ -50,7 +50,7 @@ namespace ListExtensions {
                 extensions.Add(fi.Extension);
             }
 
-            //In recursive, looks also in subdirectories
+            //In recursive mode, looks also in subdirectories
             if (lookInSubDirectories) {
                 foreach (DirectoryInfo subDi in di.GetDirectories()) {
                     extensions.UnionWith(GetExtensionsInDirectory(subDi.FullName, true));
