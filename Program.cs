@@ -45,7 +45,7 @@ namespace ListExtensions {
             HashSet<string> extensions = new HashSet<string>();
             DirectoryInfo di = new DirectoryInfo(directory);
             
-            //Look the files in the current directories, and get an unique list of extensions
+            //Looks the files in the current directories, and gets an unique list of extensions
             foreach (FileInfo fi in di.GetFiles()) {
                 extensions.Add(fi.Extension);
             }
