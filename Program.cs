@@ -46,14 +46,20 @@ namespace ListExtensions {
             DirectoryInfo di = new DirectoryInfo(directory);
             
             //Looks the files in the current directories, and gets an unique list of extensions
-            foreach (FileInfo fi in di.GetFiles()) {
-                extensions.Add(fi.Extension);
+            try {
+                foreach (FileInfo fi in di.GetFiles()) {
+                    extensions.Add(fi.Extension);
+                }
+            } catch (UnauthorizedAccessException) {
             }
 
             //In recursive mode, looks also in subdirectories
             if (lookInSubDirectories) {
-                foreach (DirectoryInfo subDi in di.GetDirectories()) {
-                    extensions.UnionWith(GetExtensionsInDirectory(subDi.FullName, true));
+                try {
+                    foreach (DirectoryInfo subDi in di.GetDirectories()) {
+                        extensions.UnionWith(GetExtensionsInDirectory(subDi.FullName, true));
+                    }
+                } catch (UnauthorizedAccessException) {
                 }
             }
 
