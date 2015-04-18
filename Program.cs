@@ -29,7 +29,7 @@ namespace ListExtensions {
 
             #region Procedural code
             string[] extensions = GetExtensionsInDirectory(directory, true);
-            Console.Write(String.Join(" ", extensions));
+            Console.WriteLine(String.Join(" ", extensions));
             #endregion
         }
 
